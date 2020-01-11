@@ -1,6 +1,22 @@
 #chwdp
 x=input().split()
 
+def done():
+    global x
+
+    if(type(x[len(x)-1])==3):
+        if(len(x)==2):
+            return 1
+        return 0
+    elif(type(x[len(x)-1])==0):
+        if (len(x) == 1):
+            return 1
+        return 0
+    else:
+        if (len(x) == 3):
+            return 1
+        return 0
+
 def exactType(a):
 	const="abcde"
 	var="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -108,16 +124,16 @@ def detect(sentence):
                 return 0
 
 if __name__== "__main__":
-    i = 0
-    while(len(x)>2):
-        if(type(x[i])==0):
-            i-=funkcja_predykat(i)
-        elif(type(x[i])==2):
-            i-=kwantyfikator(i)
-        elif (type(x[i]) == 3):
-            i-=negacja(i)
-        elif(type(x[i])==4):
-            i-=operator(i)
-        i+=1
+    	i=0
+	while(not done()):
+	    if(type(x[i])==0):
+		i-=funkcja_predykat(i)
+	    elif(type(x[i])==2):
+		i-=kwantyfikator(i)
+	    elif (type(x[i]) == 3):
+		i-=negacja(i)
+	    elif(type(x[i])==4):
+		i-=operator(i)
+	    i+=1
 
-    print(x)
+	print(x)
